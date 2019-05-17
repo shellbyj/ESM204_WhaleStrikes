@@ -20,6 +20,12 @@ whaledata <- read_csv("HW3Data.csv")
 
 ```{r}
 
+vote_lm <- glm(vote ~ age + income + NEP + risk + bid, data = whaledata)
+
+summary(vote_lm)
+
+#put results in stargazer table
+
 
 ```
 
