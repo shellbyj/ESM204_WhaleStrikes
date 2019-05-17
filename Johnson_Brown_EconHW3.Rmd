@@ -1,0 +1,19 @@
+---
+title: "ESM204_HW3"
+author: "Shellby Johnson"
+date: "May 16, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(tidyverse)
+
+whaledata <- read_csv("HW3Data.csv")
+
+```
+
