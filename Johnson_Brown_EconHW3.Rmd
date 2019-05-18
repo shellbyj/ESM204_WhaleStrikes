@@ -9,23 +9,56 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, include = FALSE}
 
 library(tidyverse)
+library(stargazer)
 
 whaledata <- read_csv("HW3Data.csv")
 
 ```
 
+##1
+```{r, echo=FALSE, results='asis'}
 
-```{r}
+whalevote_lm <- lm(vote ~ age + income + NEP + risk + bid, data = whaledata)
 
-vote_lm <- glm(vote ~ age + income + NEP + risk + bid, data = whaledata)
-
-summary(vote_lm)
+summary(whalevote_lm)
 
 #put results in stargazer table
 
+lm_table_whalevote <- stargazer(whalevote_lm, type = "html", align = TRUE, title = "**Table 1. Multivariate Linear Regression of Voting for Whale Protection**", covariate.labels = c("Age 40-50", "Age 30-40", "Age 50-60", "Age 18-30", "Income Top 1 Percent", "Income Poor", "Income Rich", "Income Very Rich", "NEP", "Risk Reduction", "Cost to Respondent"), dep.var.labels=c("Voting Response For Whale Protection"), single.row = TRUE)
+
 
 ```
+
+##2
+Based on this regression, what can you say about the value of a single prevented whale death? (Hint: Think about how risk reduction for all whales translates into the number of whale deaths avoided)
+```{r}
+whalerisk_lm <- lm(risk ~ age + income + NEP + vote + bid, data = whaledata)
+
+summary(whalerisk_lm)
+```
+Find the percent risk reduction for a single whale. I.e. 20%/5 whales = X%/1 whale
+
+Then, once you get that #, use your regression equation in terms of “bid” and find that number at whatever risk reduction %, then do the same thing but for a 4% increase in risk reduction. (4% increase in risk reduction saves one whale from above equation. Then subtract the smaller bid amount from the larger bid and you will get a $ amount per whale.
+
+Once you get your regression model, write out the equation with coefficients in terms of bid. I would assign the coefficients to variable to avoid rounding errors. Then pick a person and input the variables based on their demographics because the income coefficients and age coefficients are different based on the income and age
+
+##3
+Pick three arbitrary respondents. For each of those respondents, estimate their WTP for a VSR program offering 60% risk reduction. 
+
+
+Response Variable:
+Vote = 0.7
+
+##4
+Now repeat this process and estimate the mean WTP for a VSR program offering 60% risk
+reduction among Santa Barbara County households.
+
+##5
+If there are 150,000 households in Santa Barbara County, estimate the total benefit of a VSR program to these households.
+
+##6
+Based only on these benefits, do the benefits of the VSR program outweigh the costs?
 
