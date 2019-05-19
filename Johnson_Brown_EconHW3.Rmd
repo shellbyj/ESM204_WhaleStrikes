@@ -34,16 +34,12 @@ lm_table_whalevote <- stargazer(whalevote_lm, type = "html", align = TRUE, title
 
 ##2
 Based on this regression, what can you say about the value of a single prevented whale death? (Hint: Think about how risk reduction for all whales translates into the number of whale deaths avoided)
-```{r}
-whalerisk_lm <- lm(risk ~ age + income + NEP + vote + bid, data = whaledata)
 
-summary(whalerisk_lm)
-```
-Find the percent risk reduction for a single whale. I.e. 20%/5 whales = X%/1 whale
+V(yes) = 1.20 + (.020*Ageto30) + (-.020*Ageto40) + (.010 *Ageto50) + (-.016*Ageto60) + (.003 * IncomePoor) + (.007*Rich) + (.047*IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction) +(-0.001*BID)
 
-Then, once you get that #, use your regression equation in terms of “bid” and find that number at whatever risk reduction %, then do the same thing but for a 4% increase in risk reduction. (4% increase in risk reduction saves one whale from above equation. Then subtract the smaller bid amount from the larger bid and you will get a $ amount per whale.
+(-0.001*BID) = 1.20 + (.020*Ageto30) + (-.020*Ageto40) + (.010 *Ageto50) + (-.016*Ageto60) + (.003 * IncomePoor) + (.007*Rich) + (.047*IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction) + V(yes) = 1.20
 
-Once you get your regression model, write out the equation with coefficients in terms of bid. I would assign the coefficients to variable to avoid rounding errors. Then pick a person and input the variables based on their demographics because the income coefficients and age coefficients are different based on the income and age
+4% reduction = $2.79
 
 ##3
 Pick three arbitrary respondents. For each of those respondents, estimate their WTP for a VSR program offering 60% risk reduction. 

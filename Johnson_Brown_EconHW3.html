@@ -336,40 +336,7 @@ F Statistic
 <div id="section-1" class="section level2">
 <h2>2</h2>
 <p>Based on this regression, what can you say about the value of a single prevented whale death? (Hint: Think about how risk reduction for all whales translates into the number of whale deaths avoided)</p>
-<pre class="r"><code>whalerisk_lm &lt;- lm(risk ~ age + income + NEP + vote + bid, data = whaledata)
-
-summary(whalerisk_lm)</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = risk ~ age + income + NEP + vote + bid, data = whaledata)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -35.633 -25.229  -5.621  26.326  37.356 
-## 
-## Coefficients:
-##                    Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)       50.215011   6.079967   8.259 1.39e-15 ***
-## agetofifty         4.428182   3.418400   1.295    0.196    
-## agetoforty         1.482746   3.374406   0.439    0.661    
-## agetosixty        -1.405876   3.221313  -0.436    0.663    
-## agetothirty        1.532404   3.127234   0.490    0.624    
-## incomeone_percent -3.473244   3.235840  -1.073    0.284    
-## incomepoor        -0.959352   3.514398  -0.273    0.785    
-## incomerich        -3.452429   3.686326  -0.937    0.349    
-## incomevery_rich   -1.920565   3.650873  -0.526    0.599    
-## NEP               -0.005099   0.119457  -0.043    0.966    
-## vote               2.177813   2.446355   0.890    0.374    
-## bid               -0.024979   0.035694  -0.700    0.484    
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 23.21 on 488 degrees of freedom
-## Multiple R-squared:  0.01313,    Adjusted R-squared:  -0.009114 
-## F-statistic: 0.5903 on 11 and 488 DF,  p-value: 0.8373</code></pre>
-<p>Find the percent risk reduction for a single whale. I.e. 20%/5 whales = X%/1 whale</p>
-<p>Then, once you get that #, use your regression equation in terms of “bid” and find that number at whatever risk reduction %, then do the same thing but for a 4% increase in risk reduction. (4% increase in risk reduction saves one whale from above equation. Then subtract the smaller bid amount from the larger bid and you will get a $ amount per whale.</p>
-<p>Once you get your regression model, write out the equation with coefficients in terms of bid. I would assign the coefficients to variable to avoid rounding errors. Then pick a person and input the variables based on their demographics because the income coefficients and age coefficients are different based on the income and age</p>
+<p>V(yes) = 1.20 + (.020<em>Ageto30) + (-.020</em>Ageto40) + (.010 <em>Ageto50) + (-.016</em>Ageto60) + (.003 * IncomePoor) + (.007<em>Rich) + (.047</em>IncomeVeryRich) + (.009 * IncomeOnePercent) + ()</p>
 </div>
 <div id="section-2" class="section level2">
 <h2>3</h2>
