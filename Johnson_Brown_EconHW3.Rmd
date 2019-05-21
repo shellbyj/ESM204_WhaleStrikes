@@ -37,16 +37,34 @@ Based on this regression, what can you say about the value of a single prevented
 
 V(yes) = 1.20 + (.020*Ageto30) + (-.020*Ageto40) + (.010 *Ageto50) + (-.016*Ageto60) + (.003 * IncomePoor) + (.007*Rich) + (.047*IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction) +(-0.001*BID)
 
-(-0.001*BID) = .119670 - (.714*Voteyes) (.020*Ageto30) + (-.020*Ageto40) + (.010 *Ageto50) + (-.016*Ageto60) + (.003 * IncomePoor) + (.007*Rich) + (.047*IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction)
+(-0.001*BID) = .119670 - (.714*Voteyes) + (.020*Ageto30) + (-.020*Ageto40) + (.010 *Ageto50) + (-.016*Ageto60) + (.003 * IncomePoor) + (.007*Rich) + (.047*IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction)
 
 4% reduction/whale = $2.79
+Response Variable:
+Vote = 0.714
 
 ##3
 Pick three arbitrary respondents. For each of those respondents, estimate their WTP for a VSR program offering 60% risk reduction. 
 
+```{r}
 
-Response Variable:
-Vote = 0.714
+#Estimated WTP for respondent 150; NEP = 8; Income = poor; Age = tothirty; vote = yes
+
+respondent_150 <- (0.119670 - 0.714 + (0.0204401*1) + (0.0027386*1) + (0.0158639 *8) + 
+                     (0.0007445 * 60))/ -0.0010699
+
+#Estimated WTP for respondent 300; NEP = 44; Income = 1 %; Age = tosixty; vote = yes
+
+respondent_300 <- (0.119670 - 0.714 + (-0.0162261 *1) + (0.0088282*1) + (0.0158639 *44) + 
+                     (0.0007445 * 60))/ -0.0010699
+
+#Estimated WTP for respondent 448; NEP = 13; Income = 1 %; Age = tofifty; vote = yes
+
+respondent_448 <- (0.119670 - 0.714 + (0.0099816*1) + (0.0088282*1) + (0.0158639 *13) + 
+                     (0.0007445 * 60))/ -0.0010699
+
+```
+
 
 ##4
 Now repeat this process and estimate the mean WTP for a VSR program offering 60% risk
