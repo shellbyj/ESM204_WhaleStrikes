@@ -337,13 +337,26 @@ F Statistic
 <h2>2</h2>
 <p>Based on this regression, what can you say about the value of a single prevented whale death? (Hint: Think about how risk reduction for all whales translates into the number of whale deaths avoided)</p>
 <p>V(yes) = 1.20 + (.020<em>Ageto30) + (-.020</em>Ageto40) + (.010 <em>Ageto50) + (-.016</em>Ageto60) + (.003 * IncomePoor) + (.007<em>Rich) + (.047</em>IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction) +(-0.001*BID)</p>
-<p>(-0.001<em>BID) = .119670 + (.714</em>Voteyes) (.020<em>Ageto30) + (-.020</em>Ageto40) + (.010 <em>Ageto50) + (-.016</em>Ageto60) + (.003 * IncomePoor) + (.007<em>Rich) + (.047</em>IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction)</p>
-<p>4% reduction = $2.79</p>
+<p>(-0.001<em>BID) = .119670 - (.714</em>Voteyes) + (.020<em>Ageto30) + (-.020</em>Ageto40) + (.010 <em>Ageto50) + (-.016</em>Ageto60) + (.003 * IncomePoor) + (.007<em>Rich) + (.047</em>IncomeVeryRich) + (.009 * IncomeOnePercent) + (0.016*** (0.002) * NEP) + (0.001 (0.001) * RiskReduction)</p>
+<p>4% reduction/whale = $2.79 Response Variable: Vote = 0.714</p>
 </div>
 <div id="section-2" class="section level2">
 <h2>3</h2>
 <p>Pick three arbitrary respondents. For each of those respondents, estimate their WTP for a VSR program offering 60% risk reduction.</p>
-<p>Response Variable: Vote = 0.7</p>
+<pre class="r"><code>#Estimated WTP for respondent 150; NEP = 8; Income = poor; Age = tothirty; vote = yes
+
+respondent_150 &lt;- (0.119670 - 0.714 + (0.0204401*1) + (0.0027386*1) + (0.0158639 *8) + 
+                     (0.0007445 * 60))/ -0.0010699
+
+#Estimated WTP for respondent 300; NEP = 44; Income = 1 %; Age = tosixty; vote = yes
+
+respondent_300 &lt;- (0.119670 - 0.714 + (-0.0162261 *1) + (0.0088282*1) + (0.0158639 *44) + 
+                     (0.0007445 * 60))/ -0.0010699
+
+#Estimated WTP for respondent 448; NEP = 13; Income = 1 %; Age = tofifty; vote = yes
+
+respondent_448 &lt;- (0.119670 - 0.714 + (0.0099816*1) + (0.0088282*1) + (0.0158639 *13) + 
+                     (0.0007445 * 60))/ -0.0010699</code></pre>
 </div>
 <div id="section-3" class="section level2">
 <h2>4</h2>
