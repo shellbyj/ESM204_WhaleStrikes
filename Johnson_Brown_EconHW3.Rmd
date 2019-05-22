@@ -70,9 +70,60 @@ respondent_448 <- (0.119670 - 0.714 + (0.0099816*1) + (0.0088282*1) + (0.0158639
 Now repeat this process and estimate the mean WTP for a VSR program offering 60% risk
 reduction among Santa Barbara County households.
 
+```{r}
+
+#avg_wtp <- (intercept + agetothirty + NEP*(nep_avg) + risk*(60) - vote)/-bid
+
+avg_WTP <- (0.119670 - 0.714 + 0.0204401 + 0.0158639*(38.113)+ 0.0007445 * (60))/0.0010699
+
+
+```
+
+
+
 ##5
 If there are 150,000 households in Santa Barbara County, estimate the total benefit of a VSR program to these households.
 
+
+```{r}
+
+Total_benefits <- avg_WTP*(150000)
+
+
+```
+
 ##6
 Based only on these benefits, do the benefits of the VSR program outweigh the costs?
+
+```{r}
+
+#Do benefits outweigh the costs for Santa Barbara residents?
+
+#Yes
+
+Total_benefits - (7*10^6) #3571210
+
+```
+
+##7 Suppose the price of a carbon credit is $Z per ton, at what price Z* will the shipping industry
+decide to adopt the VSR for purely self-interested reasons? (Note: if ships voluntarily reduce
+speed, then the $7 million cost (noted above) of implementing the VSR would be avoided)
+
+```{r}
+
+#cost of reducing C02 emissions
+
+```
+
+##8 8. Now suppose the carbon credit price is exactly Z*, so all ships voluntarily reduce speed to
+achieve the 60% risk reduction. Approximately how many whales would be saved by this? What
+would be the social value of allowing ships to enter the carbon trading market?
+
+
+```{r}
+#benefit of saving 15 whales is $41.76
+
+Social_value <- 41.85 + Total_benefits
+
+```
 
