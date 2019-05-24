@@ -50,17 +50,17 @@ Pick three arbitrary respondents. For each of those respondents, estimate their 
 
 #Estimated WTP for respondent 150; NEP = 8; Income = poor; Age = tothirty; vote = yes
 
-respondent_150 <- (0.119670 - 0.714 + (0.0204401*1) + (0.0027386*1) + (0.0158639 *8) + 
+respondent_150 <- (0.119670 - 0.5 + (0.0204401*1) + (0.0027386*1) + (0.0158639 *8) + 
                      (0.0007445 * 60))/ -0.0010699
 
 #Estimated WTP for respondent 300; NEP = 44; Income = 1 %; Age = tosixty; vote = yes
 
-respondent_300 <- (0.119670 - 0.714 + (-0.0162261 *1) + (0.0088282*1) + (0.0158639 *44) + 
+respondent_300 <- (0.119670 - 0.5 + (-0.0162261 *1) + (0.0088282*1) + (0.0158639 *44) + 
                      (0.0007445 * 60))/ -0.0010699
 
 #Estimated WTP for respondent 448; NEP = 13; Income = 1 %; Age = tofifty; vote = yes
 
-respondent_448 <- (0.119670 - 0.714 + (0.0099816*1) + (0.0088282*1) + (0.0158639 *13) + 
+respondent_448 <- (0.119670 - 0.5 + (0.0099816*1) + (0.0088282*1) + (0.0158639 *13) + 
                      (0.0007445 * 60))/ -0.0010699
 
 ```
@@ -74,7 +74,7 @@ reduction among Santa Barbara County households.
 
 #avg_wtp <- (intercept + agetothirty + NEP*(nep_avg) + risk*(60) - vote)/-bid
 
-avg_WTP <- (0.119670 - 0.714 + 0.0204401 + 0.0158639*(38.113)+ 0.0007445 * (60))/0.0010699
+avg_WTP <- (0.1196977 - 0.5 + 0.0204401 + 0.0088282 + 0.0158639*(38.366)+ 0.0007445 * (60))/0.0010699
 
 
 ```
@@ -89,6 +89,7 @@ If there are 150,000 households in Santa Barbara County, estimate the total bene
 
 Total_benefits <- avg_WTP*(150000)
 
+Total_benefits
 
 ```
 
@@ -101,7 +102,7 @@ Based only on these benefits, do the benefits of the VSR program outweigh the co
 
 #Yes
 
-Total_benefits - (7*10^6) #3571210
+Total_benefits - (7*10^6) #35378314
 
 ```
 
